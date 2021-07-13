@@ -47,27 +47,25 @@ const AppLayout: React.FC = ({ children }) => {
                     </a>
                   </div>
                 </div>
-                <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">
-                  <div className="flex items-center px-6 py-4 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0">
-                    <div className="w-full py-4">
-                      <div className="relative">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center"></div>
-                      </div>
-                    </div>
-                  </div>
+                <div className="min-w-0 md:px-8 lg:px-0 xl:col-span-6 py-4">
+                  <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
+                    <span className="text-sm font-medium leading-none text-white">TW</span>
+                  </span>
                 </div>
 
                 {/* Mobile menu button */}
-                <div className="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden">
-                  <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                    <span className="sr-only">Open menu</span>
-                    {open ? (
-                      <XIcon className="block h-6 w-6" aria-hidden="true" />
-                    ) : (
-                      <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                    )}
-                  </Popover.Button>
-                </div>
+                {width && width < 1024 && (
+                  <div className="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden">
+                    <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <span className="sr-only">Open menu</span>
+                      {open ? (
+                        <XIcon className="block h-6 w-6" aria-hidden="true" />
+                      ) : (
+                        <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                      )}
+                    </Popover.Button>
+                  </div>
+                )}
               </div>
             </div>
             <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
