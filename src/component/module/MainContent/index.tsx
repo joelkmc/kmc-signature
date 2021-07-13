@@ -1,5 +1,9 @@
 const MainContent: React.FC = () => {
-  return <div>Main Content</div>
+  return (
+    <div>
+      <p className="text-lg font-proxiSemiBold">Document Content</p>
+    </div>
+  )
 }
 
 export default MainContent

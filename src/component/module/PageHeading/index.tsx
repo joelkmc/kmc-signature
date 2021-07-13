@@ -1,7 +1,10 @@
-const PageHeading: React.FC = () => {
-  return (
-    /* This example requires Tailwind CSS v2.0+ */
+import useDialogState from '../../../hooks/useDialogState'
+import SignatureDialog from './SignatureDialog'
 
+const PageHeading: React.FC = () => {
+  const [dialogState, closeDialog, openDialog] = useDialogState()
+
+  return (
     <div>
       <div className="mt-2 md:flex md:items-center md:justify-between">
         <div className="flex-1 min-w-0">
@@ -11,11 +14,13 @@ const PageHeading: React.FC = () => {
         </div>
         <div className="mt-4 flex-shrink-0 flex md:mt-0 md:ml-4">
           <button
+            onClick={openDialog}
             type="button"
             className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            Sign Document
+            Click to sign
           </button>
+          <SignatureDialog closeDialog={closeDialog} dialogState={dialogState} />
         </div>
       </div>
     </div>
