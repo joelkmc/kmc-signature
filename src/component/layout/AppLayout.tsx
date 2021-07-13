@@ -34,9 +34,9 @@ const AppLayout: React.FC = ({ children }) => {
       >
         {({ open }) => (
           <>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gra">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="relative flex justify-between lg:gap-8">
-                <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static">
+                <div className="flex md:inset-y-0 lg:static py-4">
                   <div className="flex-shrink-0 flex items-center">
                     <a href="#">
                       <img
