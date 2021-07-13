@@ -35,8 +35,8 @@ const AppLayout: React.FC = ({ children }) => {
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gra">
-              <div className="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
-                <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
+              <div className="relative flex justify-between lg:gap-8">
+                <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static">
                   <div className="flex-shrink-0 flex items-center">
                     <a href="#">
                       <img
@@ -47,7 +47,7 @@ const AppLayout: React.FC = ({ children }) => {
                     </a>
                   </div>
                 </div>
-                <div className="min-w-0 md:px-8 lg:px-0 xl:col-span-6 py-4">
+                <div className="hidden lg:block min-w-0 md:px-8 lg:px-0 py-4">
                   <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
                     <span className="text-sm font-medium leading-none text-white">TW</span>
                   </span>
