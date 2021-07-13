@@ -1,5 +1,4 @@
-import { Fragment } from 'react'
-import { Menu, Popover, Transition } from '@headlessui/react'
+import { Popover } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import PagesNavigation from '../module/PagesNavigation'
@@ -14,12 +13,6 @@ import PageHeading from '../module/PageHeading'
 //   imageUrl:
 //     'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 // }
-
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
 
 const classNames = (...classes: string[]): string => {
   return classes.filter(Boolean).join(' ')
@@ -75,71 +68,27 @@ const AppLayout: React.FC = ({ children }) => {
                     )}
                   </Popover.Button>
                 </div>
-
-                <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
-                  {/* Profile dropdown */}
-                  <Menu as="div" className="flex-shrink-0 relative ml-5">
-                    {({ open }) => (
-                      <>
-                        <div>
-                          <Menu.Button className="bg-white rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            <span className="sr-only">Open user menu</span>
-                            <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
-                              <span className="text-sm font-medium leading-none text-white">
-                                TW
-                              </span>
-                            </span>
-                          </Menu.Button>
-                        </div>
-                        <Transition
-                          show={open}
-                          as={Fragment}
-                          enter="transition ease-out duration-100"
-                          enterFrom="transform opacity-0 scale-95"
-                          enterTo="transform opacity-100 scale-100"
-                          leave="transition ease-in duration-75"
-                          leaveFrom="transform opacity-100 scale-100"
-                          leaveTo="transform opacity-0 scale-95"
-                        >
-                          <Menu.Items
-                            static
-                            className="origin-top-right absolute z-10 right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none"
-                          >
-                            {userNavigation.map((item) => (
-                              <Menu.Item key={item.name}>
-                                {({ active }) => (
-                                  <a
-                                    href={item.href}
-                                    className={classNames(
-                                      active ? 'bg-gray-100' : '',
-                                      'block py-2 px-4 text-sm text-gray-700'
-                                    )}
-                                  >
-                                    {item.name}
-                                  </a>
-                                )}
-                              </Menu.Item>
-                            ))}
-                          </Menu.Items>
-                        </Transition>
-                      </>
-                    )}
-                  </Menu>
-                </div>
               </div>
             </div>
+            <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
+              <div className="border-t border-gray-200 pt-2 pb-3">
+                <div className="p-3">
+                  <PagesNavigation />
+                </div>
+              </div>
+            </Popover.Panel>
           </>
         )}
       </Popover>
 
       <div className="py-6">
-        <div className="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-12 lg:gap-8">
+        <div className="max-w-3xl mx-auto px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="col-span-12">
             <PageHeading />
           </div>
           {width && width >= 1024 && (
             <div className="hidden lg:block lg:col-span-3">
-              <div className="bg-white rounded-lg shadow px-5 py-6 sm:px-6 ">
+              <div className="bg-white rounded-lg shadow px-5 py-6 px-6 ">
                 <nav aria-label="Sidebar" className="sticky top-6 divide-y divide-gray-300">
                   <PagesNavigation />
                 </nav>
@@ -147,7 +96,7 @@ const AppLayout: React.FC = ({ children }) => {
             </div>
           )}
           <main className="lg:col-span-9">
-            <div className="min-h-screen bg-white rounded-lg shadow px-5 py-6 sm:px-6">
+            <div className="min-h-screen bg-white rounded-lg shadow px-5 py-6 px-6">
               {/* Your content */} {children}
             </div>
           </main>
