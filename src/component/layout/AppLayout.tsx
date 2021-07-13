@@ -88,15 +88,15 @@ const AppLayout: React.FC = ({ children }) => {
           </div>
           {width && width >= 1024 && (
             <div className="hidden lg:block lg:col-span-3">
-              <div className="bg-white rounded-lg shadow px-5 py-6 px-6 ">
-                <nav aria-label="Sidebar" className="sticky top-6 divide-y divide-gray-300">
+              <div className=" max-h-96 overflow-auto sticky top-6 bg-white rounded-lg shadow py-6 px-6 ">
+                <nav aria-label="Sidebar" className="divide-y divide-gray-300">
                   <PagesNavigation />
                 </nav>
               </div>
             </div>
           )}
           <main className="lg:col-span-9">
-            <div className="min-h-screen bg-white rounded-lg shadow px-5 py-6 px-6">
+            <div className="max-h-full h-screen bg-white rounded-lg shadow py-6 px-6">
               {/* Your content */} {children}
             </div>
           </main>
