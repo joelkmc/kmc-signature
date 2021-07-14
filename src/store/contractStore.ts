@@ -3,6 +3,10 @@ import create, { SetState } from 'zustand'
 import { IContractResponse } from '../component/types/Contract'
 
 interface ContractStore {
+  createdOn?: string
+  email?: string
+  modifiedOn?: string
+  name?: string
   bookingNumber?: string
   id?: number
   createContract?: UseMutateAsyncFunction<IContractResponse, unknown, void, unknown>

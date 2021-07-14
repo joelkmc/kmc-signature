@@ -70,7 +70,7 @@ const AppLayout: React.FC = ({ children }) => {
             </div>
             <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
               <div className="border-t border-gray-200 pt-2 pb-3">
-                <div className="p-3">
+                <div className="p-3 max-w-2xl mx-auto">
                   <PagesNavigation />
                 </div>
               </div>
@@ -85,7 +85,7 @@ const AppLayout: React.FC = ({ children }) => {
             <PageHeading />
           </div>
           {width && width >= 1024 && (
-            <div className="hidden lg:block lg:col-span-3">
+            <div className="hidden lg:block lg:col-span-4 ">
               <div className=" max-h-96 overflow-auto sticky top-6 bg-white rounded-lg shadow py-6 px-6 ">
                 <nav aria-label="Sidebar" className="divide-y divide-gray-300">
                   <PagesNavigation />
@@ -93,7 +93,7 @@ const AppLayout: React.FC = ({ children }) => {
               </div>
             </div>
           )}
-          <main className="lg:col-span-9">
+          <main className="lg:col-span-8 ">
             <div className="h-full min-h-screen bg-white rounded-lg shadow py-6 px-6">
               {/* Your content */} {children}
             </div>
