@@ -1,5 +1,5 @@
 {
-  "name": "kmc-signature",
+  "name": "kmc-e-sign",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
