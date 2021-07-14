@@ -18,6 +18,7 @@
     "autoprefixer": "10.x",
     "axios": "^0.21.1",
     "cross-env": "7.x",
+    "dayjs": "^1.10.6",
     "delay-cli": "^1.1.0",
     "npm-run-all": "4.x",
     "postcss": "8.x",

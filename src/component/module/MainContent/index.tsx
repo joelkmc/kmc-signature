@@ -14,37 +14,34 @@ export interface IParams {
 
 const MainContent: React.FC = () => {
   const { bookingNumber }: IParams = useParams()
-  const [setBookingNumber, setId, setCreateContract, setSignButtonDisabled] = useContractStore(
-    (state) => [
-      state.setBookingNumber,
-      state.setId,
-      state.setCreateContract,
-      state.setSignButtonDisabled,
-    ]
-  )
+  const [setContractStore] = useContractStore((state) => [state.setContractStore])
 
   const { mutateAsync, data, isLoading } = useMutation<IContractResponse>(
     ['generate-contract'],
     () => ContractApi.createBookingContract(bookingNumber),
     {
       onSuccess: (successData) => {
-        setSignButtonDisabled(successData.bookingContractSignatures[0].signature.length > 0)
+        setContractStore({
+          isSignButtonDisabled: successData.bookingContractSignatures[0].signature.length > 0,
+        })
       },
     }
   )
 
   useMemo(
-    () => data?.bookingContractSignatures[0].id && setId(data.bookingContractSignatures[0].id),
+    () =>
+      data &&
+      setContractStore({
+        coontractSignatures: data.bookingContractSignatures,
+      }),
 
-    [data?.bookingContractSignatures, setId]
+    [data, setContractStore]
   )
 
   useMemo(() => {
     bookingNumber && mutateAsync()
-    setBookingNumber(bookingNumber)
-    setCreateContract(mutateAsync)
-    setCreateContract(mutateAsync)
-  }, [bookingNumber, setBookingNumber, mutateAsync, setCreateContract])
+    setContractStore({ bookingNumber, createContract: mutateAsync })
+  }, [bookingNumber, mutateAsync, setContractStore])
 
   const transform = useMemo(() => {
     return (node: any): void => {
@@ -56,13 +53,6 @@ const MainContent: React.FC = () => {
           return
         } else {
           node.attribs.class = 'w-44 h-auto mx-auto'
-        }
-      }
-
-      if (node.type === 'text') {
-        if (node.data.includes('=====')) {
-          node.data = ''
-          return
         }
       }
     }

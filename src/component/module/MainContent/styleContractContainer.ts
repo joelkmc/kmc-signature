@@ -8,15 +8,12 @@ export const StyledContractSection = styled.section`
   }
 
   & p:nth-child(1) {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2.5rem;
   }
 
   & p:nth-child(4) {
-    margin-top: 0.4rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   & ul {

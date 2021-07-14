@@ -7,7 +7,7 @@ const PageHeading: React.FC = () => {
   const isSignButtonDisabled = useContractStore((state) => state.isSignButtonDisabled)
 
   return (
-    <div className="mt-2 flex flex-col sm:flex-row sm:items-center justify-between">
+    <div className="mt-2 flex sm:flex-row justify-end">
       <div className="my-2 flex-shrink-0 flex md:mt-0 md:ml-4">
         {!isSignButtonDisabled && (
           <button

@@ -15,9 +15,9 @@ const SignatureDialog: React.FC<SignatureDialogProps> = ({ closeDialog, dialogSt
   const signatureCanvasRef = useRef<ReactSignatureCanvas>(null)
   const { addToast } = useToasts()
 
-  const [bookingNumber, id, createContract] = useContractStore((state) => [
+  const [bookingNumber, coontractSignatures, createContract] = useContractStore((state) => [
     state.bookingNumber,
-    state.id,
+    state.coontractSignatures,
     state.createContract,
   ])
 
@@ -38,10 +38,10 @@ const SignatureDialog: React.FC<SignatureDialogProps> = ({ closeDialog, dialogSt
 
   const handleSubmit = (): void => {
     const dataImg = signatureCanvasRef.current?.toDataURL().toString()
-    if (dataImg && bookingNumber && id) {
+    if (dataImg && bookingNumber && coontractSignatures) {
       mutateAsync({
         bookingNumber: bookingNumber,
-        data: { signature: dataImg, id },
+        data: { signature: dataImg, id: coontractSignatures[0].id },
       })
     }
   }
@@ -63,7 +63,7 @@ const SignatureDialog: React.FC<SignatureDialogProps> = ({ closeDialog, dialogSt
             onClick={handleCanvasClear}
             type="button"
             disabled={isLoading}
-            className="disabled:opacity-80 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
+            className="mt-2 disabled:opacity-80 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300"
           >
             <span className="mr-2">
               <svg

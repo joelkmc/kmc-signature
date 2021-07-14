@@ -3,16 +3,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import PagesNavigation from '../module/PagesNavigation'
 import PageHeading from '../module/PageHeading'
-
-// const user = {
-//   name: 'Chelsea Hagon',
-//   handle: 'chelseahagon',
-//   email: 'chelseahagon@example.com',
-//   role: 'Human Resources Manager',
-//   imageId: '1550525811-e5869dd03032',
-//   imageUrl:
-//     'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-// }
+import { useContractStore } from '../../store/contractStore'
 
 const classNames = (...classes: string[]): string => {
   return classes.filter(Boolean).join(' ')
@@ -20,6 +11,8 @@ const classNames = (...classes: string[]): string => {
 
 const AppLayout: React.FC = ({ children }) => {
   const { width } = useWindowSize()
+
+  const signatures = useContractStore((state) => state.coontractSignatures)
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -49,7 +42,26 @@ const AppLayout: React.FC = ({ children }) => {
                 </div>
                 <div className="hidden lg:block min-w-0 md:px-8 lg:px-0 py-4">
                   <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
-                    <span className="text-sm font-medium leading-none text-white">TW</span>
+                    <span className="text-sm font-medium leading-none text-white">
+                      {signatures ? (
+                        signatures[0].name.charAt(0).toUpperCase()
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                          />
+                        </svg>
+                      )}
+                    </span>
                   </span>
                 </div>
 
@@ -86,7 +98,7 @@ const AppLayout: React.FC = ({ children }) => {
           </div>
           {width && width >= 1024 && (
             <div className="hidden lg:block lg:col-span-4 ">
-              <div className=" max-h-96 overflow-auto sticky top-6 bg-white rounded-lg shadow py-6 px-6 ">
+              <div className=" max-h-96 h-full overflow-auto sticky top-6 bg-white rounded-lg shadow py-6 px-6 ">
                 <nav aria-label="Sidebar" className="divide-y divide-gray-300">
                   <PagesNavigation />
                 </nav>
