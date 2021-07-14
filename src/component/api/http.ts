@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosError, AxiosRequestConfig } from 'axios'
 import { baseUrl } from './apiUrl'
@@ -5,7 +6,7 @@ import { baseUrl } from './apiUrl'
 export const makeHttpRequest = async (
   config: AxiosRequestConfig,
   version?: number
-): Promise<any> => {
+): Promise<AxiosResponse<any>> => {
   // const token: string | null = localStorage.getItem('jwt')
   if (!config.baseURL) config.baseURL = baseUrl
   config.withCredentials = true

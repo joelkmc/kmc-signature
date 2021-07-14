@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosResponse } from 'axios'
 import { IPutSignaturePayload } from '../../types/Contract'
 import { makeHttpRequest } from '../http'
