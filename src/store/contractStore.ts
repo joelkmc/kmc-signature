@@ -8,6 +8,7 @@ interface IContractInitial {
   bookingNumber?: string
   createContract?: UseMutateAsyncFunction<IContractResponse, unknown, void, unknown>
   isSignButtonDisabled?: boolean
+  accessKey?: string
 }
 
 interface ContractStore extends IContractInitial {

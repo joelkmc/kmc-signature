@@ -12,14 +12,20 @@ import { IContractResponse, IPutSignaturePayload } from '../component/types/Cont
 
 export const useContract = (
   bookingId: string,
+  accessKey: string,
   options?: UseQueryOptions<IContractResponse>
 ): UseQueryResult<IContractResponse> => {
-  return useQuery(['contract', bookingId], () => ContractApi.getBookingContract(bookingId), options)
+  return useQuery(
+    ['contract', bookingId],
+    () => ContractApi.getBookingContract(bookingId, accessKey),
+    options
+  )
 }
 
 interface payload {
   bookingNumber: string
   data: IPutSignaturePayload
+  accessKey: string
 }
 
 export const usePutSignature = (
@@ -27,8 +33,8 @@ export const usePutSignature = (
 ): UseMutationResult<any, unknown, payload, unknown> => {
   return useMutation(
     ['contract'],
-    (payload: { bookingNumber: string; data: IPutSignaturePayload }) =>
-      ContractApi.putSignatureContract(payload.bookingNumber, payload.data),
+    (payload: { bookingNumber: string; data: IPutSignaturePayload; accessKey: string }) =>
+      ContractApi.putSignatureContract(payload.bookingNumber, payload.data, payload.accessKey),
     options
   )
 }

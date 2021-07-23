@@ -4,18 +4,18 @@ import { IPutSignaturePayload } from '../../types/Contract'
 import { makeHttpRequest } from '../http'
 
 class ContractApi {
-  static getBookingContract = async (bookingId: string): Promise<any> => {
+  static getBookingContract = async (bookingId: string, accessKey: string): Promise<any> => {
     const getContract: AxiosResponse = await makeHttpRequest({
-      url: `/Hub/booking/${bookingId}/contract`,
+      url: `/Hub/booking/${bookingId}/contract?key=${accessKey}`,
       method: 'GET',
     })
 
     return getContract.data
   }
 
-  static createBookingContract = async (bookingId: string): Promise<any> => {
+  static createBookingContract = async (bookingId: string, accessKey: string): Promise<any> => {
     const getContract: AxiosResponse = await makeHttpRequest({
-      url: `/Hub/booking/${bookingId}/contract`,
+      url: `/Hub/booking/${bookingId}/contract?key=${accessKey}`,
       method: 'POST',
     })
     console.log(bookingId)
@@ -24,10 +24,11 @@ class ContractApi {
 
   static putSignatureContract = async (
     bookingId: string,
-    payload: IPutSignaturePayload
+    payload: IPutSignaturePayload,
+    accessKey: string
   ): Promise<any> => {
     const getContract: AxiosResponse = await makeHttpRequest({
-      url: `/Hub/booking/${bookingId}/contract`,
+      url: `/Hub/booking/${bookingId}/contract?key=${accessKey}`,
       method: 'PUT',
       data: payload,
     })

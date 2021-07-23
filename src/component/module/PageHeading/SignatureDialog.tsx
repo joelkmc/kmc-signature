@@ -15,11 +15,14 @@ const SignatureDialog: React.FC<SignatureDialogProps> = ({ closeDialog, dialogSt
   const signatureCanvasRef = useRef<ReactSignatureCanvas>(null)
   const { addToast } = useToasts()
 
-  const [bookingNumber, coontractSignatures, createContract] = useContractStore((state) => [
-    state.bookingNumber,
-    state.coontractSignatures,
-    state.createContract,
-  ])
+  const [bookingNumber, coontractSignatures, createContract, accessKey] = useContractStore(
+    (state) => [
+      state.bookingNumber,
+      state.coontractSignatures,
+      state.createContract,
+      state.accessKey,
+    ]
+  )
 
   const { mutateAsync, isLoading } = usePutSignature({
     onSuccess: () => {
@@ -38,10 +41,11 @@ const SignatureDialog: React.FC<SignatureDialogProps> = ({ closeDialog, dialogSt
 
   const handleSubmit = (): void => {
     const dataImg = signatureCanvasRef.current?.toDataURL().toString()
-    if (dataImg && bookingNumber && coontractSignatures) {
+    if (dataImg && bookingNumber && coontractSignatures && accessKey) {
       mutateAsync({
         bookingNumber: bookingNumber,
         data: { signature: dataImg, id: coontractSignatures[0].id },
+        accessKey,
       })
     }
   }

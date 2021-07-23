@@ -4,25 +4,31 @@ import ContractApi from '../../api/contract'
 import ReactHtmlParser from 'react-html-parser'
 import { useMemo } from 'react'
 import { StyledContractSection } from './styleContractContainer'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { useContractStore } from '../../../store/contractStore'
 import { IContractResponse } from '../../types/Contract'
 
 export interface IParams {
   bookingNumber: string
+  key: string
 }
 
 const MainContent: React.FC = () => {
+  const useQuery = new URLSearchParams(useLocation().search)
+
   const { bookingNumber }: IParams = useParams()
   const [setContractStore] = useContractStore((state) => [state.setContractStore])
 
+  const accessKey = useQuery.get('key')
+
   const { mutateAsync, data, isLoading } = useMutation<IContractResponse>(
     ['generate-contract'],
-    () => ContractApi.createBookingContract(bookingNumber),
+    () => ContractApi.createBookingContract(bookingNumber, accessKey as string),
     {
       onSuccess: (successData) => {
         setContractStore({
           isSignButtonDisabled: successData.bookingContractSignatures[0].signature.length > 0,
+          accessKey: accessKey || undefined,
         })
       },
     }
@@ -39,9 +45,9 @@ const MainContent: React.FC = () => {
   )
 
   useMemo(() => {
-    bookingNumber && mutateAsync()
+    bookingNumber && accessKey && mutateAsync()
     setContractStore({ bookingNumber, createContract: mutateAsync })
-  }, [bookingNumber, mutateAsync, setContractStore])
+  }, [bookingNumber, mutateAsync, setContractStore, accessKey])
 
   const transform = useMemo(() => {
     return (node: any): void => {
