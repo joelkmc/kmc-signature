@@ -107,7 +107,7 @@ const AppLayout: React.FC = ({ children }) => {
           )}
           <main className="lg:col-span-8 ">
             <div className="h-full min-h-screen bg-white rounded-lg shadow py-6 px-6">
-              {/* Your content */} {children}
+              {children}
             </div>
           </main>
         </div>
