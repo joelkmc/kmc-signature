@@ -5,9 +5,16 @@ interface DialogCompProps {
   closeDialog: () => void
   dialogState: boolean
   title: string
+  closable?: boolean
 }
 
-const DialogComp: React.FC<DialogCompProps> = ({ dialogState, closeDialog, title, children }) => {
+const DialogComp: React.FC<DialogCompProps> = ({
+  dialogState,
+  closeDialog,
+  title,
+  children,
+  closable = true,
+}) => {
   return (
     <>
       <Transition appear show={dialogState} as={Fragment}>
@@ -45,6 +52,30 @@ const DialogComp: React.FC<DialogCompProps> = ({ dialogState, closeDialog, title
                 >
                   {title}
                 </Dialog.Title>
+
+                {closable && (
+                  <div className="absolute top-5 right-5">
+                    <button onClick={closeDialog}>
+                      <span className="text-gray-600">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                )}
+
                 {children}
               </div>
             </Transition.Child>

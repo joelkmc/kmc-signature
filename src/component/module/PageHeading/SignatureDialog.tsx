@@ -3,17 +3,20 @@ import ReactSignatureCanvas from 'react-signature-canvas'
 import DialogComp from '../../element/Dialog'
 import { usePutSignature } from '../../../hooks/Contract'
 import { useContractStore } from '../../../store/contractStore'
-import { useToasts } from 'react-toast-notifications'
 import { AiOutlineLoading } from 'react-icons/ai'
 
 interface SignatureDialogProps {
   dialogState: boolean
+  openSuccessfulDialog: () => void
   closeDialog: () => void
 }
 
-const SignatureDialog: React.FC<SignatureDialogProps> = ({ closeDialog, dialogState }) => {
+const SignatureDialog: React.FC<SignatureDialogProps> = ({
+  closeDialog,
+  dialogState,
+  openSuccessfulDialog,
+}) => {
   const signatureCanvasRef = useRef<ReactSignatureCanvas>(null)
-  const { addToast } = useToasts()
 
   const [bookingNumber, coontractSignatures, createContract, accessKey] = useContractStore(
     (state) => [
@@ -28,10 +31,7 @@ const SignatureDialog: React.FC<SignatureDialogProps> = ({ closeDialog, dialogSt
     onSuccess: () => {
       createContract && createContract()
       closeDialog()
-      addToast('You have signed the contract. An email will be sent to you shortly!', {
-        appearance: 'success',
-        autoDismiss: true,
-      })
+      openSuccessfulDialog()
     },
   })
 
