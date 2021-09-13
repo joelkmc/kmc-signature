@@ -44,17 +44,14 @@
     @apply align-baseline;
   }
 
-  input[type=password]::-ms-reveal,
-  input[type=password]::-ms-clear
-  {
-      display: none;
+  input[type='password']::-ms-reveal,
+  input[type='password']::-ms-clear {
+    display: none;
   }
 
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button {  
-
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
     opacity: 1;
-
   }
 
   /* width */
@@ -63,18 +60,18 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(229, 231, 235,1); 
+    background: rgba(229, 231, 235, 1);
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgba(156, 163, 175, 1); 
-    border-radius: 30px
+    background: rgba(156, 163, 175, 1);
+    border-radius: 30px;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(156, 163, 175, 1); 
+    background: rgba(156, 163, 175, 1);
   }
 
   .scroll::-webkit-scrollbar {
@@ -83,85 +80,87 @@
   }
 
   .scroll::-webkit-scrollbar-track {
-    background: rgba(229, 231, 235,1); 
+    background: rgba(229, 231, 235, 1);
   }
-  
+
   /* Handle */
   .scroll::-webkit-scrollbar-thumb {
-    background: rgba(156, 163, 175, 1); 
-    border-radius: 30px
+    background: rgba(156, 163, 175, 1);
+    border-radius: 30px;
   }
 
   /* Handle on hover */
   .scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(156, 163, 175, 1); 
+    background: rgba(156, 163, 175, 1);
   }
 
   .table-scroll-start {
-    box-shadow: inset -5px 0 7px 0 rgba(0,0,0,0.15);
+    box-shadow: inset -5px 0 7px 0 rgba(0, 0, 0, 0.15);
   }
   .table-scroll-middle {
-    box-shadow: inset 0 0 14px 0 rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 14px 0 rgba(0, 0, 0, 0.3);
   }
   .table-scroll-end {
-    box-shadow: inset 5px 0 7px 0 rgba(0,0,0,0.15);
+    box-shadow: inset 5px 0 7px 0 rgba(0, 0, 0, 0.15);
   }
 
-  .st0{
-    fill:rgb(199, 177, 177)
+  .st0 {
+    fill: rgb(199, 177, 177);
   }
-  
-  .st1{
-    fill:#b5dfea
+
+  .st1 {
+    fill: #b5dfea;
   }
-  .st2{
-    opacity:.55;fill:#90cedd
+  .st2 {
+    opacity: 0.55;
+    fill: #90cedd;
   }
-  .st3{
-    fill:#d7f0f9
+  .st3 {
+    fill: #d7f0f9;
   }
-  .st4{
-    fill:#0582c1
+  .st4 {
+    fill: #0582c1;
   }
-  .st5{
-    fill:#79c9e8
+  .st5 {
+    fill: #79c9e8;
   }
-  .st6{
-    fill:#ffbf4d
+  .st6 {
+    fill: #ffbf4d;
   }
-  .st7{
-    fill:#00668e
+  .st7 {
+    fill: #00668e;
   }
-  .st8{
-    fill:#05556d
+  .st8 {
+    fill: #05556d;
   }
-  .st9{
-    fill:#f98d3d
+  .st9 {
+    fill: #f98d3d;
   }
-  .st10{
-    fill:#ed701b
+  .st10 {
+    fill: #ed701b;
   }
-  .st11{
-    fill:none
+  .st11 {
+    fill: none;
   }
-  .st12{
-    fill:#efaa3a
+  .st12 {
+    fill: #efaa3a;
   }
-  .st13{
-    opacity:.29;
-    fill:#f98d2b
+  .st13 {
+    opacity: 0.29;
+    fill: #f98d2b;
   }
-  .st14{
-    fill:#49b4d6
+  .st14 {
+    fill: #49b4d6;
   }
-  .st15{
-    fill:#ff9f50
+  .st15 {
+    fill: #ff9f50;
   }
-  .st16{
-    fill:#f77e2d
+  .st16 {
+    fill: #f77e2d;
   }
-  .st17{
-    opacity:.55;fill:url(#SVGID_1_)
+  .st17 {
+    opacity: 0.55;
+    fill: url(#SVGID_1_);
   }
 
   /*! purgecss end ignore */
