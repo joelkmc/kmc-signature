@@ -21,11 +21,14 @@ const SuccessfulDialog: React.FC<SuccessfulDialogProps> = ({ closeDialog, dialog
     }, 1000)
 
     if (counter === 0) {
-      window.location.href =
-        process.env.NODE_ENV === 'development'
-          ? `http://localhost:3000/user/bookings/${bookingNumber}`
-          : `https://kmc-hub.vercel.app/user/bookings/${bookingNumber}`
-      // : `https://hub.kmc.solutions/user/bookings/${bookingNumber}`
+      // // production
+      // window.location.href = `https://hub.kmc.solutions/user/bookings/${bookingNumber}`
+
+      // Staging
+      window.location.href = `https://kmc-hub.vercel.app/user/bookings/${bookingNumber}`
+
+      // // dev env
+      // window.location.href = `http://localhost:3000/user/bookings/${bookingNumber}`
     }
   }, [counter, dialogState, bookingNumber])
 
