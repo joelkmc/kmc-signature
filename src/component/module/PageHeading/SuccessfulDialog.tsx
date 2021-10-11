@@ -24,7 +24,8 @@ const SuccessfulDialog: React.FC<SuccessfulDialogProps> = ({ closeDialog, dialog
       window.location.href =
         process.env.NODE_ENV === 'development'
           ? `http://localhost:3000/user/bookings/${bookingNumber}`
-          : `https://hub.kmc.solutions/user/bookings/${bookingNumber}`
+          : `https://kmc-hub.vercel.app/user/bookings/${bookingNumber}`
+      // : `https://hub.kmc.solutions/user/bookings/${bookingNumber}`
     }
   }, [counter, dialogState, bookingNumber])
 
