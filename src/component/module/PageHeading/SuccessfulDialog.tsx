@@ -38,7 +38,7 @@ const SuccessfulDialog: React.FC<SuccessfulDialogProps> = ({ closeDialog, dialog
         <p>You&apos;re almost done!</p>
         <p className="mt-3 text-sm">
           You have successfully signed your agreement with us! We will redirect you back to your
-          booking so you can complete your registration and payment!
+          booking page.
         </p>
       </div>
 
