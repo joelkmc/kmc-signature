@@ -31,13 +31,11 @@ const PagesNavigation: React.FC = () => {
       ?.filter((item) => item)
   }, [signatures])
 
-  console.log(data)
-
   return (
     <div className="flow-root">
       <ul className="-mb-8">
-        {data && data.length > 0 ? (
-          data.map((event, eventIdx) => (
+        {data && data?.length > 0 ? (
+          data?.map((event, eventIdx) => (
             <li key={event?.datetime}>
               <div className="relative pb-8">
                 {eventIdx !== data.length - 1 ? (
