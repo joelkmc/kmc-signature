@@ -10,6 +10,7 @@ interface IContractInitial {
   isSignButtonDisabled?: boolean
   accessKey?: string
 }
+// const
 
 interface ContractStore extends IContractInitial {
   setContractStore: (payload: Partial<IContractInitial>) => void
