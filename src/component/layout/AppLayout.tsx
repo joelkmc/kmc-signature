@@ -92,7 +92,7 @@ const AppLayout: React.FC = ({ children }) => {
       </Popover>
 
       <div className="py-6">
-        <div className="max-w-3xl mx-auto px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-12 lg:gap-8">
+        <div className="max-w-3xl mx-auto px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8">
           <div className="col-span-12">
             <PageHeading />
           </div>

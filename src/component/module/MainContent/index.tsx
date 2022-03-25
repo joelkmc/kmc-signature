@@ -51,15 +51,15 @@ const MainContent: React.FC = () => {
 
   const transform = useMemo(() => {
     return (node: any): void => {
-      if (node.type === 'tag' && node.name === 'img') {
-        if (node.attribs.src.length === 0) {
+      if (node.name === 'img' && node.attribs.alt === 'Signature') {
+        if (data?.bookingContractSignatures[0].signature) {
           node.attribs.src = data && data.bookingContractSignatures[0].signature
-          node.name = 'div'
-          node.attribs.class = 'signature__container'
-          return
-        } else {
           node.attribs.class = 'w-44 h-auto mx-auto'
+          return
         }
+
+        node.name = 'div'
+        node.attribs.class = 'signature__container'
       }
     }
   }, [data])

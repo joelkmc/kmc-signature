@@ -32,6 +32,10 @@ const SuccessfulDialog: React.FC<SuccessfulDialogProps> = ({ closeDialog, dialog
     }
   }, [counter, dialogState, bookingNumber])
 
+  const handleGoToBooking = (): void => {
+    window.location.href = `https://kmc-hub.vercel.app/user/bookings/${bookingNumber}`
+  }
+
   return (
     <DialogComp closeDialog={closeDialog} dialogState={dialogState} title="Success!">
       <div className="py-5">
@@ -54,7 +58,7 @@ const SuccessfulDialog: React.FC<SuccessfulDialogProps> = ({ closeDialog, dialog
         <p className="text-sm">Dont want to wait?</p>
         <button
           className="disabled:opacity-80 inline-flex items-center px-4 text-sm text-blue-500 focus:outline-none focus:underline"
-          onClick={closeDialog}
+          onClick={handleGoToBooking}
         >
           Click here to redirect.
         </button>
