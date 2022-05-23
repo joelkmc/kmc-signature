@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { hubBaseUrl } from '../../../constant/hub-base-url'
 import { useContractStore } from '../../../store/contractStore'
 import DialogComp from '../../element/Dialog'
 
@@ -21,19 +22,12 @@ const SuccessfulDialog: React.FC<SuccessfulDialogProps> = ({ closeDialog, dialog
     }, 1000)
 
     if (counter === 0) {
-      // // production
-      window.location.href = `https://hub.kmc.solutions/user/bookings/${bookingNumber}`
-
-      // Staging
-      // window.location.href = `https://kmc-hub.vercel.app/user/bookings/${bookingNumber}`
-
-      // // dev env
-      // window.location.href = `http://localhost:3000/user/bookings/${bookingNumber}`
+      window.location.href = `${hubBaseUrl}/user/subscription?booking-number=${bookingNumber}`
     }
   }, [counter, dialogState, bookingNumber])
 
   const handleGoToBooking = (): void => {
-    window.location.href = `https://kmc-hub.vercel.app/user/bookings/${bookingNumber}`
+    window.location.href = `${hubBaseUrl}/user/subscription?booking-number=${bookingNumber}`
   }
 
   return (

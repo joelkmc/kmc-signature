@@ -1,3 +1,4 @@
+import { hubBaseUrl } from '../../../constant/hub-base-url'
 import useDialogState from '../../../hooks/useDialogState'
 import { useContractStore } from '../../../store/contractStore'
 import SignatureDialog from './SignatureDialog'
@@ -13,7 +14,7 @@ const PageHeading: React.FC = () => {
   ])
 
   const handleGoToBooking = (): void => {
-    window.location.href = `https://kmc-hub.vercel.app/user/bookings/${bookingNumber}`
+    window.location.href = `${hubBaseUrl}/user/subscription?booking-number=${bookingNumber}`
   }
 
   return (

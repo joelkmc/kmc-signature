@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosError, AxiosRequestConfig } from 'axios'
-import { baseUrl } from './apiUrl'
+import { baseUrl } from '../../constant/base-api-url'
 
 export const makeHttpRequest = async (
   config: AxiosRequestConfig,
