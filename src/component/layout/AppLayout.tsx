@@ -27,7 +27,7 @@ const AppLayout: React.FC = ({ children }) => {
       >
         {({ open }) => (
           <>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1460px] mx-auto px-4 sm:px-6 lg:px-8">
               <div className="relative flex justify-between lg:gap-8">
                 <div className="flex md:inset-y-0 lg:static py-4">
                   <div className="flex-shrink-0 flex items-center">
@@ -92,12 +92,12 @@ const AppLayout: React.FC = ({ children }) => {
       </Popover>
 
       <div className="py-6">
-        <div className="max-w-3xl mx-auto px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8">
+        <div className="max-w-[1460px] mx-auto px-6 lg:grid lg:grid-cols-12 gap-4">
           <div className="col-span-12">
             <PageHeading />
           </div>
           {width && width >= 1024 && (
-            <div className="hidden lg:block lg:col-span-4 ">
+            <div className="hidden lg:block lg:col-span-3 ">
               <div className=" max-h-96 h-full overflow-auto sticky top-6 bg-white rounded-lg shadow py-6 px-6 ">
                 <nav aria-label="Sidebar" className="divide-y divide-gray-300">
                   <PagesNavigation />
@@ -105,7 +105,7 @@ const AppLayout: React.FC = ({ children }) => {
               </div>
             </div>
           )}
-          <main className="lg:col-span-8 ">
+          <main className="lg:col-span-9 ">
             <div className="h-full min-h-screen bg-white rounded-lg shadow py-6 px-6">
               {children}
             </div>
